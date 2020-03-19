@@ -1,0 +1,62 @@
+// -----------------------------------------------------------------------------
+// Item variables, placeholders, mixins, functions, and styles
+// @group Item
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Variables
+
+/// MenuItem (.menu-item) spacing
+/// @require {function} size
+/// @require {variable} $magic-number
+/// @type {Number}
+$menu-item-spacing: size($magic-number * 3)
+
+// Placeholders
+
+/// Item.is-bucket (.is-bucket, .buckets > .is-bucket)
+/// @example <Item className='is-bucket'>
+/// @requires {placeholder} %display-flex
+/// @requires {placeholder} %flex-column
+%is-bucket
+  @extend %display-flex
+
+  @extend %flex-column
+
+  align-items: flex-start
+  list-style: none
+
+/// Menu item (.menu-item, .menu > .adm-item) styles
+/// @require {variable} $menu-item-spacing
+%menu-item
+  list-style: none
+  white-space: nowrap
+
+  &:not(:first-of-type)
+    margin-left: $menu-item-spacing
+
+// Styles
+
+// Bucket items
+.is-bucket
+  @extend %is-bucket
+
+.buckets
+  .is-bucket:not(:last-of-type),
+  > .adm-item:not(:last-of-type)
+    margin-right: size($grid-column-width)
+
+// Menu items
+.menu-item,
+.menu > .adm-item
+  @extend %menu-item
+
+// Sidebar
+.sidebar-menu
+  .menu-item,
+  .adm-item
+    &:not(:first-of-type)
+      margin-left: 0
+
+    &:not(:last-of-type)
+      margin-bottom: size($magic-number * 2)

@@ -1,0 +1,61 @@
+<!-- Packages -->
+import { ColorPalette, ColorItem, Meta } from '@storybook/addon-docs/blocks'   
+import { common, grey} from '@material-ui/core/colors'  
+
+<!-- Config -->
+import { PRIMARY, SECONDARY, ALERT } from '../config/palettes'  
+
+<!-- Metadata -->
+<Meta title='Blocks/Colors' />
+
+# Colors
+
+<br/>
+
+## Primary Palette
+
+<br/>
+
+<ColorPalette>
+
+</ColorPalette>
+
+## Secondary Palette
+
+<br/>
+
+<ColorPalette>
+
+</ColorPalette>
+
+## Alert Palette
+
+<br/>
+
+<ColorPalette>
+
+</ColorPalette>
+
+## Material Colors Palette
+
+<br/>
+
+<ColorPalette>
+  <ColorItem
+    title='Monochrome'
+    title='Common & Grey'
+    colors={[
+      common.black,
+      grey['900'],
+      grey['800'],
+      grey['700'],
+      grey['600'],
+      grey['400'],
+      grey['300'],
+      grey['200'],
+      grey['100'],
+      grey['50'],
+      common.white,
+    ]}
+  />
+</ColorPalette>

@@ -1,0 +1,40 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import {  
+  Link, ActionLink  
+} from '.'  
+
+<!-- Metadata -->
+<Meta title='Atoms/Link' component={Link} /> 
+
+# Link
+
+`<a>` element with the base class `ada-link`.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/a**
+
+<Preview>
+  <Story name='Default'>
+    <Link />
+  </Story>
+</Preview>
+
+<Props components={{ Link, ActionLink }} />
+
+## Dependents
+
+<br/>
+
+### ActionLink
+
+`Link` component with the base class `action-link`.
+
+A `ChevronRightIcon` will be rendered next to `props.children`.
+
+<Preview>
+  <Story name='ActionLink'>
+    <ActionLink />
+  </Story>
+</Preview>

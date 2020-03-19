@@ -1,0 +1,32 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import { Aside, Sidebar } from '.'  
+
+<!-- Metadata -->
+<Meta title='Organisms/Aside' component={Aside} />  
+
+# Aside
+
+`<aside>` element with the base class `ado-aside`.  
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/aside**
+
+<Props components={{ Aside, Sidebar }} />
+
+## Dependents
+
+<br/>
+
+### Sidebar
+
+`Aside` component with the base class `sidebar`. 
+
+A `Container` component with the base class `sidebar-dimmer` will be rendered beneath the component as well.
+
+<Preview id='sidebar-preview'>
+  <Story name='Sidebar'>
+    <Sidebar className='right visible' />
+  </Story>
+</Preview>

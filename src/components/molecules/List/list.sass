@@ -1,0 +1,54 @@
+// -----------------------------------------------------------------------------
+// List variables, placeholders, mixins, functions, and styles
+// @group List
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Common list properties
+/// @requires {placeholder} %no-margin
+/// @requires {placeholder} %no-padding
+%default-list
+  @extend %no-margin
+
+  @extend %no-padding
+
+/// Buckets component properties
+/// @example <Buckets />
+/// @requires {placeholder} %display-flex
+%buckets
+  @extend %display-flex
+
+/// List className="menu" (.menu)
+/// @requires {mixin} display-flex
+%menu
+  +display-flex
+
+  align-items: center
+  width: max-content
+
+// Styles
+
+// List component
+.adm-list
+  @extend %default-list
+
+// List className="buckets"
+.buckets
+  @extend %buckets
+
+// List className="menu"
+.menu
+  @extend %menu
+
+// SiteSidebar menu
+.sidebar-menu
+  +width(100%)
+
+  align-items: flex-start
+  flex-direction: column
+
+.sidebar
+  &.right .sidebar-menu
+    align-items: flex-end

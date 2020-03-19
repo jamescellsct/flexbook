@@ -1,0 +1,40 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import { Form, EmailForm, SearchBar } from '.'  
+
+<!-- Metadata -->
+<Meta title='Molecules/Form' component={Form} />  
+
+# Fieldset
+
+`<form>` element with the base class `adm-form`.  
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/form**
+
+<Props components={{ Form, EmailForm, SearchForm }} />
+
+## Dependents
+
+<br/>
+
+### EmailForm
+
+`Fieldset` component with the base class `email-form`.
+
+<Preview>
+  <Story name='Email'>
+    <EmailForm />
+  </Story>
+</Preview>
+
+### SearchBar
+
+`Fieldset` component with the base class `searchbar`.
+
+<Preview>
+  <Story name='Search'>
+    <SearchBar />
+  </Story>
+</Preview>

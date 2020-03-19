@@ -1,0 +1,83 @@
+// ------------------------------------------------------------------------------
+// Button styles, variables, placeholders, mixins and functions
+// @group Button
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Variables
+
+/// Disabled button color
+/// @requires {variable} $grey-200
+/// @type {Color}
+$button-disabled-color: $grey-200
+
+/// Button font-size
+/// @type {Number}
+$button-font-size: 16
+
+// Placeholders
+
+/// Button component styles.
+/// @example <Button />
+/// @require {function} size
+/// @require {placeholder} %display-inline-flex
+/// @require {placeholder} %is-flex-centered
+/// @require {placeholder} %no-breaking
+/// @require {variable} $primary-font-family
+/// @require {variable} $primary-font-family
+%default-button
+  @extend %display-inline-flex
+
+  @extend %is-flex-centered
+
+  @extend %no-breaking
+
+  border: 0
+  cursor: pointer
+  font-family: $primary-font-family
+  outline: none
+
+  &[disabled='true'],
+  &.is-disabled
+    @extend %white-text
+
+    background-color: $button-disabled-color
+
+/// Common disabled button properties
+/// @require {variable} $button-disabled-color
+%disabled-button
+  @extend %white-text
+
+  background-color: $button-disabled-color
+
+/// Common transparent button properties
+/// @require {variable} $transparent
+%transparent-button
+  background-color: $transparent
+  padding: 0
+  width: auto
+
+// Styles
+
+// Button component
+.ada-button
+  @extend %default-button
+
+  &[disabled='true'],
+  &.is-disabled
+    @extend %disabled-button
+
+// CloseButton, MenuButton & ScrollToTopButton
+.close-btn,
+.menu-btn,
+.scroll-to-top-btn
+  @extend %transparent-button
+
+  color: $grey-600
+  padding: 0
+  width: auto
+
+// Sidebar
+.sidebar
+  .close-btn
+    margin-bottom: size($magic-number * 2)

@@ -1,0 +1,25 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+import { text } from '@storybook/addon-knobs'  
+
+<!-- Components -->
+import Label from '.'  
+
+<!-- Metadata -->
+<Meta title='Atoms/Label' component={Label} />  
+
+# Label
+
+`<label>` element with the base class `ada-label`.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/label**
+
+<Story name='Form Element'>
+  <Label>{text('children')}</Label>
+</Story>
+
+<Preview>
+  <Label />
+</Preview>
+
+<Props components={{ Label }} />

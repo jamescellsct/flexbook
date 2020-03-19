@@ -1,0 +1,40 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import { Fieldset, EmailField, SearchField } from '.'  
+
+<!-- Metadata -->
+<Meta title='Molecules/Fieldset' component={Fieldset} />  
+
+# Fieldset
+
+`<fieldset>` element with the base class `adm-fieldset`.  
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/fieldset**
+
+<Props components={{ Fieldset, EmailField, SearchField }} />
+
+## Dependents
+
+<br/>
+
+### EmailField
+
+`Fieldset` component with the base class `email-field`.
+
+<Preview>
+  <Story name='Email'>
+    <EmailField />
+  </Story>
+</Preview>
+
+### SearchField
+
+`Fieldset` component with the base class `search-field`.
+
+<Preview>
+  <Story name='Search'>
+    <SearchField />
+  </Story>
+</Preview>

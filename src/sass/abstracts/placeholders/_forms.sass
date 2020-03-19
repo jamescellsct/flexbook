@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// Form element placeholders
+// @group placeholders-forms
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Removes border, margin, padding, and outline from form elements
+/// @requires {placeholder} %is-borderless
+/// @requires {placeholder} %no-margin
+/// @requires {placeholder} %no-padding
+/// @requires {variable} $primary-font-family
+%reset-form-element
+  @extend %is-borderless
+
+  @extend %no-margin
+
+  @extend %no-padding
+
+  font-family: $primary-font-family
+  outline: none

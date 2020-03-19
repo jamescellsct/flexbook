@@ -1,0 +1,89 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import {  
+  Button, CloseButton, MenuButton, ScrollToTopButton, SmoothScrollButton  
+} from '.'  
+
+<!-- Metadata -->
+<Meta title='Atoms/Button' component={Button} />  
+
+# Button
+
+`<button>` element with the base class `ada-button`.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/button**
+
+<Preview>
+  <Story name='Default'>
+    <Button>
+      Default button
+    </Button>
+  </Story>
+</Preview>
+
+<Props components={{
+  Button, CloseButton, MenuButton, ScrollToTopButton, SmoothScrollButton
+}} />
+
+## Dependents
+
+<br/>
+
+### Close Button
+
+`Button` component with the base class `close-btn`.
+
+<Preview>
+  <Story name='Close'>
+    <CloseButton />
+  </Story>
+</Preview>
+
+### Disabled Button
+
+`Button` component  where `disabled=true`. The button will be given the class
+`is-disabled`.
+
+
+<Preview>
+  <Story name='Disabled'>
+    <Button disabled>
+      Disabled button
+    </Button>
+  </Story>
+</Preview>
+
+### Menu Button
+
+`Button` component with the base class `menu-btn`.
+
+<Preview>
+  <Story name='Menu'>
+    <MenuButton />
+  </Story>
+</Preview>
+
+### Scroll to Top Button
+
+`SmoothScrollButton` component with the base class `scroll-to-top-btn`.
+
+<Preview>
+  <Story name='Scroll to Top'>
+    <ScrollToTopButton />
+  </Story>
+</Preview>
+
+### Smooth Scroll Button
+
+`Button` component with the base class `smooth-scroll-btn`.
+
+When clicked, this page will scroll to the top of the element selected by the
+`to` property.
+
+<Preview>
+  <SmoothScrollButton>
+    Smooth scroll button
+  </SmoothScrollButton>
+</Preview>

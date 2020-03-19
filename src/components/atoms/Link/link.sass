@@ -1,0 +1,108 @@
+// -----------------------------------------------------------------------------
+// Link styles, variables, placeholders, mixins and functions
+// @group Link
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Variables
+
+/// Link font-size
+/// @type {Number}
+$link-size: 16
+
+/// Link color
+/// @require {variable} $grey-600
+/// @type {Color}
+$link-color: $grey-600
+
+/// .social-media-icon-link font-size
+/// @type {Number}
+$social-media-icon-link-size: 20
+
+// Placeholders
+
+/// Link.is-active
+/// @example <Link className='is-active'>
+%active-link
+  font-weight: 800
+
+/// Link.action-link
+/// @example <Link className='action-link'>
+/// @require {mixin} flex
+%action-link
+  +display-flex
+
+  align-items: center
+  font-weight: 500
+
+/// Link (.ada-link) component styles
+/// @require {mixin} event
+/// @require {placeholder} %active-link
+/// @require {variable} $link-color
+/// @require {variable} $link-size
+%default-link
+  @extend %event
+
+  +font-size($link-size)
+
+  color: $link-color
+  font-weight: 300
+
+  &.is-active
+    @extend %active-link
+
+/// .menu-item-link
+/// @require {mixin} event
+/// @require {placeholder} %active-link
+%menu-item-link
+  +event
+    &.is-active
+      @extend %active-link
+
+
+  font-weight: 500
+  white-space: nowrap
+
+  &.is-special
+    font-weight: 600
+
+/// .social-media-icon-link
+/// @require {mixin} font-size
+/// @require {variable} $social-media-icon-link-size
+%social-media-icon-link
+  +font-size($social-media-icon-link-size)
+
+// Styles
+
+// Base
+.ada-link
+  @extend %default-link
+
+// ActionLink
+.action-link
+  @extend %action-link
+
+// General menu item links
+.menu-item-link,
+.menu-item > .ada-link
+  @extend %menu-item-link
+
+// Header menu links
+.header-menu
+  .menu-item-link,
+  .menu-item > .ada-link,
+  .menu > .adm-item > .ada-link
+    text-align: right
+
+// Social media menu links
+.social-media-icon-link
+  @extend %social-media-icon-link
+
+// Sidebar
+.sidebar
+  .ada-link
+    +font-size(14)
+
+    color: $white
+    font-weight: 300
+    text-transform: uppercase

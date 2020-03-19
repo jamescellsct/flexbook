@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// Misc. placeholders
+// @group placeholders-misc
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Target &:hover, &:active, &:focus
+/// @requires {mixin} event
+%event
+  +event
+    cursor: pointer
+    font-weight: 600
+
+/// Removes the border from an element
+/// @requires {mixin} borderless
+%is-borderless
+  +borderless
+
+/// Hides an element
+/// @requires {mixin} opacity
+%is-hidden
+  +is-hidden
+
+/// Makes element transparent
+%is-transparent
+  background-color: transparent
+  color: transparent
+

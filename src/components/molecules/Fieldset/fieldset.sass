@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+/// Fieldset styles, variables, placeholders, mixins and functions
+// @group Fieldset
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Fieldset
+/// @example <Fieldset />
+/// @require {placeholder} %is-borderless
+/// @require {placeholder} %no-margin
+/// @require {placeholder} %no-padding
+%default-fieldset
+  @extend %is-borderless
+
+  @extend %no-margin
+
+  @extend %no-padding
+
+// Styles
+
+// Fieldset
+.adm-fieldset
+  @extend %default-fieldset
+
+// SearchBar
+.searchbar
+  .search-field
+    +constrain(85%)

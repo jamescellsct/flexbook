@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// Section styles, variables, placeholders, mixins and functions
+// @group Section
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Default Hero styles
+/// @example <Hero />
+/// @require {mixin} size
+/// @require {placeholder} %display-flex
+/// @require {placeholder} %is-flex-centered
+/// @require {variable} $magic-number
+%hero
+  @extend %display-flex
+
+  @extend %is-flex-centered
+
+  +size(100%, size($magic-number * 32))
+
+// Styles
+
+// Hero
+.hero
+  @extend %hero

@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// Form variables, placeholders, mixins, functions, and styles
+// @group Form
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Form styles
+/// @example <Form />
+/// @require {mixin} constrain
+%default-form
+  +constrain(max-content)
+
+/// Bar style forms
+/// @example <SearchBar />
+/// @require {placeholder} %display-flex
+%bar-form
+  @extend %display-flex
+
+  align-items: flex-start
+
+// Styles
+
+// Form
+.adm-form
+  @extend %default-form
+
+// Bar style forms
+.email-form,
+.searchbar
+  @extend %bar-form

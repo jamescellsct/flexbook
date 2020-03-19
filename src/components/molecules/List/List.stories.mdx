@@ -1,0 +1,93 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import { List, Buckets, Menu } from '.'  
+
+<!-- Metadata -->
+<Meta title='Molecules/List' component={List} />
+
+# List
+
+`<ul>`, `<ol>`, or `<dl>` element with the base class `adm-list`.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/dl**  
+**https://developer.mozilla.org/docs/Web/HTML/Element/ol**  
+**https://developer.mozilla.org/docs/Web/HTML/Element/ul**  
+
+<Props components={{ List, Buckets, Menu }} />
+
+## Dependents
+
+<br/>
+
+### Buckets
+
+`List` component with the base class `buckets`.
+
+<Preview>
+  <Story name='Buckets'>
+    <Buckets />
+  </Story>
+</Preview>
+
+### Menu
+
+`List` component with the base class `menu`.
+
+<Preview>
+  <Story name='Menu'>
+    <Menu />
+  </Story>
+</Preview>
+
+#### Social Media Menu
+
+Render a social media `Menu` using brand icons from Font Awesome.
+
+export const social_menu = {
+  className: 'social-media-menu',
+  items: [
+    {
+      children: '',
+      href: '/instagram',
+      className: 'fab fa-instagram'
+    },
+    {
+      children: '',
+      href: '/twitter',
+      className: 'fab fa-twitter'
+    },
+    {
+      children: '',
+      href: '/facebook',
+      className: 'fab fa-facebook-f'
+    }
+  ]
+}
+
+```javascript
+const social_menu = {
+  className: 'social-media-menu',
+  items: [
+    {
+      children: '',
+      href: '/instagram',
+      className: 'fab fa-instagram'
+    },
+    {
+      children: '',
+      href: '/twitter',
+      className: 'fab fa-twitter'
+    },
+    {
+      children: '',
+      href: '/facebook',
+      className: 'fab fa-facebook-f'
+    }
+  ]
+}
+```
+<Preview>
+  <Menu {...social_menu} />
+</Preview>

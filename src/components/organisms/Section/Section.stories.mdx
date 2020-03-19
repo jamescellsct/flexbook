@@ -1,0 +1,33 @@
+<!-- Packages -->
+import { Meta, Props } from '@storybook/addon-docs/blocks'   
+import { text } from '@storybook/addon-knobs'  
+
+<!-- Components -->
+import { Section, Hero } from '.'  
+
+<!-- Metadata -->
+<Meta title='Organisms/Section' component={Section} />
+
+# Section
+
+`<section>` element with the base class `ado-section`.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/section**
+
+<Props components={{ Section, Hero }} />
+
+## Dependents
+
+<br/>
+
+### Hero
+
+`Section` component with the base class `hero`. 
+
+<Story name='Hero'>
+  <Hero title={text('title')}  text={text('text')} />
+</Story>
+
+<Preview>
+  <Hero />
+</Preview>

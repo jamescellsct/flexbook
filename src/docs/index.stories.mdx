@@ -1,0 +1,154 @@
+<!-- Packages -->
+import { Meta } from '@storybook/addon-docs/blocks'   
+
+<!-- Metadata -->
+<Meta title='Getting Started/Welcome' />
+
+# Flexbook - Starter Design System
+
+<br/>
+
+## Overview
+
+[Introduction](#introduction)  
+[Architecture](#architecture)  
+[Usage](#usage)  
+
+## Introduction
+
+> _Modern user interfaces are assembled from hundreds of modular UI components 
+> that are rearranged to deliver different user experiences.  
+> Design systems contain reusable UI components that help teams build complex, 
+> durable, and accessible user interfaces across projects. Since both designers 
+> and developers contribute to the UI components, the design system serves as a
+> bridge between disciplines. It is also the “source of truth” for an
+> organization’s common components._ - [Design Systems for Developers: Introduction][1]
+
+Flexbook is a template project for building production ready design systems with
+[Storybook][2]. For more information about building production design systems,
+visit [Design Systems for Developers][3] from the [Learn Storybook][4] docs.
+
+[1]: https://www.learnstorybook.com/design-systems-for-developers/react/en/introduction/
+[2]: https://storybook.js.org/
+[3]: https://www.learnstorybook.com/design-systems-for-developers
+[4]: https://www.learnstorybook.com
+
+## Architecture
+
+Following the [Atomic Design Methodology][1], this starter has a heavy focus on
+organization and documentation. The goal is to build a well organized,
+appropriately documented component library that makes implementing,
+testing, documenting, and maintaining production-grade UI components more
+efficient.
+
+[1]: https://atomicdesign.bradfrost.com/chapter-2/
+
+
+## Usage
+
+Flexbook components are developed in [React][1]; their stories and
+documentation are written in [MDX][2] using [Storybook Docs][3]. 
+
+The starter documentation can be [viewed here][4].
+
+[1]: https://reactjs.org/
+[2]: https://mdxjs.com/
+[3]: https://github.com/storybookjs/storybook/tree/master/addons/docs
+[4]: https://flexbook.flexdevelopment.now.sh/docs
+
+### Installation
+
+Once published, you'll be able to install your components. Before installing the
+components, you'll need to install React. Visit [Getting Started][1] from the
+React docs to learn more about installing React in your project.
+
+After you've installed React, run the following command:
+
+```bash
+  npm i @<PACKAGE_OWNER>/<PACKAGE_NAME>@latest
+```
+
+being sure to replace `PACKAGE_OWNER` and `PACKAGE_NAME` with the appropriate
+values.
+
+[1]: https://reactjs.org/docs/getting-started.html
+
+### Sass
+
+This starter comes ready to use [Sass][1].
+
+Sass is a CSS preprocessor that allows you to use use variables, nested rules,
+mixins, functions within your stylesheets, making it easy to share styles across
+your project, as well as organize projects of all sizes.
+
+The global styles were loaded using the configuration below, found in `main.js`:
+
+```javascript
+{
+  /**
+   * Alters the Storybook Webpack configuration.
+   *
+   * @param param1.configType has a value of 'DEVELOPMENT' or 'PRODUCTION'.
+   * 'PRODUCTION' is used when building the static version of storybook.
+   *
+   * @param {object} config - Base Webpack config
+   * @param {object} param1 - Storybook config
+   * @param {string} param1.configType - Storybook development environment
+   * @returns {object} Webpack configuration
+   */
+  webpackFinal: async (config, { configType }) => {
+    config.module.rules.push(
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              data: '@import ../../../sass/global.sass',
+              sassOptions: {
+                includePaths: ['./src/components/**/**/*.sass'],
+                indentedSyntax: true,
+                prependData: `$env: ${process.env.NODE_ENV}`
+              }
+            }
+          }
+        ]
+      }
+    )
+
+    return config
+  }
+}
+```
+
+[1]: https://sass-lang.com/
+
+### Addons
+
+Addons can be managed in `main.js`.
+
+The following addons come with this starter:
+
+```javascript
+{
+  /**
+   * Project addons.
+   *
+   * @see {@link https://storybook.js.org/docs/addons/introduction/}
+   *
+   * @property {Array<Object, String>} addons
+   */
+  addons: [
+    '@storybook/addon-a11y',
+    '@storybook/addon-actions',
+    '@storybook/addon-backgrounds',
+    '@storybook/addon-docs',
+    '@storybook/addon-knobs',
+    '@storybook/addon-links',
+    '@storybook/addon-viewport',
+    '@whitespace/storybook-addon-html'
+  ]
+}
+```

@@ -1,0 +1,25 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+import { text } from '@storybook/addon-knobs'  
+
+<!-- Components -->
+import Paragraph from '.'  
+
+<!-- Metadata -->
+<Meta title='Atoms/Paragraph' component={Paragraph} />  
+
+# Paragraph
+
+`<p>` element with the base class `ada-paragraph`.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/p**
+
+<Story name='Default'>
+  <Paragraph>{text('children')}</Paragraph>
+</Story>
+
+<Preview>
+  <Paragraph />
+</Preview>
+
+<Props components={{ Paragraph }} />

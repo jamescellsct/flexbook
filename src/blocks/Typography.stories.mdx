@@ -1,0 +1,72 @@
+<!-- Packages -->
+import { Meta, Typeset } from '@storybook/addon-docs/blocks'   
+import { common, grey} from '@material-ui/core/colors'  
+
+<!-- Config -->
+import { FAMILIES, SIZES, WEIGHTS } from '../config/typography'  
+
+<!-- Metadata -->
+<Meta title='Blocks/Typography' />
+
+export const sizes = Object.values(SIZES)  
+
+# Typography
+
+<br/>
+
+## Primary Font Family - Heebo
+
+<br/>
+
+### HTML
+
+```html
+<!-- Heebo -->
+<link rel="stylesheet" href="https://use.typekit.net/lhq7pgc.css">
+```
+
+### Sass
+
+```scss
+/// Primary font families
+/// @link https://fonts.adobe.com/fonts/heebo
+/// @type {List}
+$primary-font-family: heebo, sans-serif
+```
+
+### CSS
+
+```css
+/* See: https://fonts.adobe.com/fonts/heebo */
+body {
+  font-family: heebo, sans-serif;
+}
+```
+
+### Weights
+
+<br/>
+
+#### `300`
+
+<Typeset fontSizes={sizes} fontWeight={WEIGHTS.light} />
+
+#### `400`
+
+<Typeset fontSizes={sizes} fontWeight={WEIGHTS.regular} />
+
+#### `500`
+
+<Typeset fontSizes={sizes} fontWeight={WEIGHTS.medium} />
+
+#### `700`
+
+<Typeset fontSizes={sizes} fontWeight={WEIGHTS.bold} />
+
+#### `800`
+
+<Typeset fontSizes={sizes} fontWeight={WEIGHTS.extrabold} />
+
+#### `900`
+
+<Typeset fontSizes={sizes} fontWeight={WEIGHTS.black} />

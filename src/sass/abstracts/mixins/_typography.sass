@@ -1,0 +1,45 @@
+// -----------------------------------------------------------------------------
+// Typography mixins
+// @group mixins-typography
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Adds an after effect to text.
+/// @require {function} size
+/// @require {function} absolute
+/// @require {variable} $magic-number
+/// @require {variable} $pp-sustainability
+/// @param {Color} $color - Background color of ::after element
+/// @param {Number} $height - Height of ::after element
+/// @param {Number} $padding - Bottom padding of main element
+/// @param {Number} $padding - Bottom margin of main element
+/// @param {Number} $width - Width of ::after element
+=after-effects($color, $height, $padding, $margin, $width)
+  margin-bottom: $margin
+  padding-bottom: $padding
+  position: relative
+
+  &::after
+    +absolute(null, null, 0, 0)
+
+    background-color: $color
+    content: ' '
+    display: inline-block
+    height: $height
+    width: $width
+
+    @content
+
+/// Converts @see @param $size into to em or rem units
+/// After converting, the font-size will be set
+/// @require {function} size
+/// @require {variable} $magic-number
+/// @param {Number} $size [$magic-number] - Value to convert in pixels
+/// @param {Boolean} $important [false] - If true, add !important
+/// @param {String} $unit [rem] - Unit to convert to
+=font-size($size: $magic-number, $important: false, $unit: rem)
+  @if $important
+    font-size: size($size, $unit) !important
+  @else
+    font-size: size($size, $unit)
+

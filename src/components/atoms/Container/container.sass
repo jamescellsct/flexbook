@@ -1,0 +1,73 @@
+// -----------------------------------------------------------------------------
+/// Container styles, variables, placeholders, mixins and functions
+// @group Container
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Container (.ada-container)
+/// @require {function} map2-get
+/// @require {mixin} constrain
+/// @require {placeholder} %is-centered
+/// @require {variable} $breakpoint-1024
+/// @require {variable} $breakpoint-414
+/// @require {variable} $devices
+%default-container
+  @extend %is-centered
+
+  +constrain(map2-get($devices, 'desktop', 'max-width'))
+
+  +respond-to($breakpoint-1024)
+    +constrain(map2-get($devices, 'tablet', 'max-width'))
+
+  +respond-to($breakpoint-414)
+    +constrain(map2-get($devices, 'mobile', 'max-width'))
+
+
+// Styles
+
+// Container
+.ada-container
+  @extend %default-container
+
+// Text layout and user action containers
+.text-layout-container,
+.user-actions-container
+  +constrain(100%)
+
+  margin: 0
+
+// EmailInput
+.input-container
+  @extend %display-flex
+
+  @extend %flex-column
+
+  +constrain(max-content !important)
+
+  margin: 0
+
+// Fieldset
+.fieldset-container
+  +constrain(100%)
+
+// EmailField
+.email-field
+  .fieldset-container
+    @extend %display-flex
+
+    @extend %flex-column
+
+    align-items: flex-start
+
+// Sidebar
+.sidebar-dimmer
+  display: none
+
+  &.visible
+    +absolute(0, null, null, null)
+
+    background-color: rgba($black, .1875)
+    display: block
+    z-index: $magic-number * 1.5

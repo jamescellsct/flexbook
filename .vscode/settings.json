@@ -1,0 +1,22 @@
+{
+  "files.associations": {
+    "*.md": "mdx"
+  },
+  "vsicons.associations.files": [
+    {
+      "icon": "markdown",
+      "extensions": [
+        "md"
+      ],
+      "format": "svg",
+      "overrides": "mdx"
+    },
+    {
+      "icon": "mdx",
+      "extensions": [
+        "mdx"
+      ],
+      "format": "svg"
+    }
+  ]
+}

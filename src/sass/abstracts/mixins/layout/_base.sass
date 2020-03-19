@@ -1,0 +1,46 @@
+// -----------------------------------------------------------------------------
+// Basic Layout Mixins
+// @group mixins-layout-base
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Set an element's width and max-width to the same value
+/// @param {Number} $value - Element width/max-width or height/max-height
+/// @param {String} $dimension [width] - Dimension to constrain
+/// @throw If @see @param $value is null
+=constrain($value, $dimension: width)
+  @if $value == null
+    @error '$value parameter is required'
+
+  @if $dimension == width
+    max-width: $value
+    width: $value
+  @else
+    height: $value
+    max-height: $value
+
+/// Sets the height and min-height of an element
+/// @param {Number | String} $height - height
+/// @param {Number | String} $min-height [$height] - min-height
+=height($height, $min-height: $height)
+  height: $height
+  min-height: $min-height
+
+/// Make an element as wide as its parent container
+/// @requires {mixin} constrain
+=is-full-width
+  +constrain(100%)
+
+/// Set an element's height and width
+/// @param {Number} $width - Element width
+/// @param {Number} $height [$width] - Element height
+=size($width, $height: $width)
+  height: $height
+  width: $width
+
+/// Sets the width and min-width of an element
+/// @param {Number | String} $width - width
+/// @param {Number | String} $min-width [$width] - min-width
+=width($width, $min-width: $width)
+  min-width: $min-width
+  width: $width

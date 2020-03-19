@@ -1,0 +1,47 @@
+// -----------------------------------------------------------------------------
+// Basic Layout placeholders
+// @group placeholders-layout-base
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Center items in container using margin properties
+%is-centered
+  margin: 0 auto
+
+/// Make an element as tall as its parent container
+/// @requires {mixin} constrain
+%is-full-height
+  +constrain(100%, height)
+
+/// Make an element as wide as its parent container
+/// @requires {mixin} is-full-width
+%is-full-width
+  +is-full-width
+
+/// Make an element full screen
+/// The support block does not work in IE
+/// @requires {mixin} constrain
+%is-fullscreen
+  +constrain(100vw)
+
+  @supports (-webkit-overflow-scrolling: touch)
+    +constrain(stretch, height)
+
+    min-height: -webkit-fill-available
+
+  @supports not (-webkit-overflow-scrolling: touch)
+    +constrain(100vh, height)
+
+    min-height: 100vh
+
+/// Make an element full width and height of parent
+/// @requires {placeholder} %is-full-height
+/// @requires {placeholder} %is-full-width
+%is-stretched
+  @extend %is-full-height
+
+  @extend %is-full-width
+
+/// Removes element padding
+%no-padding
+  padding: 0

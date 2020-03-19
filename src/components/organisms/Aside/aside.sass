@@ -1,0 +1,90 @@
+// -----------------------------------------------------------------------------
+// Aside styles, variables, placeholders, mixins and functions
+// @group Aside
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Variables
+
+/// Sidebar width
+/// @require {variable} $magic-number
+$sidebar-width: $magic-number * 10 + 10
+
+/// Sidebar padding
+/// @require {function} size
+/// @require {variable} $magic-number
+/// @type {List}
+$vertical-spacing: size($magic-number * 1.5)
+
+// Placeholders
+
+/// Sidebar styles
+/// @example <Sidebar />
+/// @require {function} size
+/// @require {mixin} constrain
+/// @require {mixin} fixed
+/// @require {placeholder} %display-flex
+/// @require {placeholder} %flex-column
+/// @require {variable} $breakpoint-414
+/// @require {variable} $grey-600
+/// @require {variable} $sidebar-width
+/// @require {variable} $vertical-spacing
+%default-sidebar
+  $padding-left: size(16 * 2)
+  $padding-right: size(16 * 6)
+
+  +constrain(size($sidebar-width))
+
+  +constrain(100vh, height)
+
+  +respond-to($breakpoint-414)
+    padding-left: $padding-left
+    padding-right: $padding-right
+
+    &.right
+      padding-left: $padding-right
+      padding-right: $padding-left
+
+
+  align-items: flex-start
+  background-color: $grey-600
+  display: none
+  padding: $vertical-spacing size(16 * 8) $vertical-spacing size(16 * 4)
+  position: fixed
+  top: 0
+
+  &.hidden
+    display: none
+
+  &.visible
+    @extend %display-flex
+
+    @extend %flex-column
+
+    z-index: $magic-number * 2
+
+  &.left
+    align-items: flex-start
+    padding: $vertical-spacing size(16 * 8) $vertical-spacing size(16 * 4)
+
+    &.hidden
+      left: size(-1 * $sidebar-width)
+
+    &.visible
+      left: 0
+
+  &.right
+    align-items: flex-end
+    padding: $vertical-spacing size(16 * 4) $vertical-spacing size(16 * 8)
+
+    &.hidden
+      right: size(-1 * $sidebar-width)
+
+    &.visible
+      right: 0
+
+// Styles
+
+// Sidebar
+.sidebar
+  @extend %default-sidebar

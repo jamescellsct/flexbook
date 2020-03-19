@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+/// Label styles, variables, placeholders, mixins and functions
+// @group Label
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Label
+/// @example <Label />
+/// @require {mixin} font-size
+/// @require {variable} $grey-600
+/// @require {variable} $magic-number
+%default-label
+  +font-size(14)
+
+  color: $grey-600
+  display: block
+  margin-top: size($magic-number / 3)
+
+// Styles
+
+// Label
+.ada-label
+  @extend %default-label

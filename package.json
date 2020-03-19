@@ -1,0 +1,108 @@
+{
+  "name": "@flex-development/flexbook",
+  "version": "1.0.0-beta",
+  "description": "Template for building professional design systems with Storybook, an isolated development environment for UI components.",
+  "keywords": [
+    "component library",
+    "design system",
+    "front end development",
+    "react",
+    "storybook",
+    "storybook-addon-docs",
+    "ui development"
+  ],
+  "homepage": "https://github.com/flex-development/flexbook#README",
+  "bugs": {
+    "url": "https://github.com/flex-development/flexbook/issues",
+    "email": "lex@flexdevelopment.llc"
+  },
+  "license": "BSD 3-Clause",
+  "author": {
+    "name": "Lexus Drumgold",
+    "email": "lex@flexdevelopment.llc",
+    "url": "https://flexdevelopment.llc"
+  },
+  "main": "src/index.js",
+  "repository": "git://github.com/flex-development/flexbook.git",
+  "scripts": {
+    "preinstall": "npm i -g @storybook/cli@next @storybook/react@next",
+    "lint:js": "eslint ./*.js ./.storybook/*.js ./src/*.js ./src/**/*.js ./src/components/*.js ./src/components/**/**/*.js --fix --ext .js,.jsx  --no-ignore",
+    "lint:sass": "sass-lint --config .sass-lint.yml --verbose --no-exit",
+    "prelint": "rm -rf sass-lint.html",
+    "lint": "run-p lint:*",
+    "predev": "npm run lint",
+    "dev": "start-storybook -p 3000 --ci",
+    "dev:debug": "start-storybook -p 3000 --ci --debug-webpack",
+    "pretest": "NODE_ENV=test",
+    "test": "jest --detectOpenHandles --passWithNoTests",
+    "prebuild": "rm -rf ./public && npm run lint",
+    "build:storybook": "build-storybook -c .storybook -o public",
+    "build:docs": "build-storybook -c .storybook -o public/docs --docs",
+    "build": "run-s build:*",
+    "postbuild": "cp sass-lint.html public/sass-lint.html",
+    "prestart": "npm run build",
+    "start": "serve ./public"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.7",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-throw-expressions": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@storybook/addon-a11y": "^6.0.0-alpha.27",
+    "@storybook/addon-actions": "^6.0.0-alpha.27",
+    "@storybook/addon-backgrounds": "^6.0.0-alpha.27",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-docs": "^6.0.0-alpha.27",
+    "@storybook/addon-knobs": "^6.0.0-alpha.27",
+    "@storybook/addon-links": "^6.0.0-alpha.27",
+    "@storybook/addon-viewport": "^6.0.0-alpha.27",
+    "@storybook/addons": "^6.0.0-alpha.27",
+    "@storybook/cli": "^6.0.0-alpha.27",
+    "@storybook/react": "^6.0.0-alpha.27",
+    "@whitespace/storybook-addon-html": "^1.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.1.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-jsx": "^8.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-is": "^16.13.0",
+    "react-test-renderer": "^16.13.0",
+    "sass-lint": "^1.13.1",
+    "sass-loader": "7.3.1",
+    "serve": "^11.3.0",
+    "storybook-addon-deps": "^1.0.12"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.1",
+    "babel-loader": "^7.0.0 || ^8.0.0",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "private": true,
+  "browserslist": [
+    ">0.25%",
+    "not dead"
+  ],
+  "sasslintConfig": "./sass-lint.yml"
+}

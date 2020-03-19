@@ -1,0 +1,64 @@
+// -----------------------------------------------------------------------------
+// Flexbox Mixins
+// @group mixins-layout-flexbox
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Defines the element as a flex container.
+/// It enables a flex context for all its direct children.
+/// @param {String} $display [flex] - display
+=display-flex($display: flex)
+  display: $display
+
+  @content
+
+/// This defines the direction flex items are placed in the flex container. 
+/// Items will be layed out top to bottom, and centered on both axises.
+/// @requires {mixin} display-flex
+=flex-centered-columns
+  +display-flex
+
+  align-items: center
+  flex-direction: column
+  justify-content: center
+
+  @content
+
+/// This defines the direction flex items are placed in the flex container. 
+/// Items will be layed out left to right, and centered on both axises.
+/// @requires {mixin} display-flex
+=flex-centered-rows
+  +display-flex
+
+  align-items: center
+  justify-content: center
+
+  @content
+
+/// This establishes the main-axis, thus defining the direction flex items are
+/// placed in the flex container. Items will be layed out top to bottom.
+=flex-column
+  flex-direction: column
+
+  @content
+
+/// This establishes the main-axis, thus defining the direction flex items are
+/// placed in the flex container. Items will be layed out left to right.
+=flex-row
+  flex-direction: row
+
+  @content
+
+/// Center flexbox items on main axis and distrbute space between elements
+=flex-spread
+  align-items: center
+  justify-content: space-between
+
+  @content
+
+/// Centers flexbox items on the mainn and cross axises.
+=is-flex-centered
+  align-items: center
+  justify-content: center
+
+  @content

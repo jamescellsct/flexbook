@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// Color mixins
+// @group mixins-colors
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Sets the initial background color of an element and the element's
+/// background color when it is hovered over.
+/// @param {Color} $color - Initial background color
+/// @param {Color} $hoverColor [darken($color, 3%)] - Background color on hover
+=set-bkg-color-and-hover($color, $hover: darken($color, 3%))
+  background-color: $color
+
+  &:hover
+    background-color: $hover

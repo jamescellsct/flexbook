@@ -1,0 +1,79 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import {  
+  Icon, ArrowUpwardIcon, ChevronRightIcon, CloseIcon, LoadingIcon, MenuIcon  
+} from '.'  
+
+<!-- Metadata -->
+<Meta title='Atoms/Icon' component={Icon} />  
+
+# Icon
+
+[Material Icons][1] with the base class `ada-icon`.
+
+Subcomponents **cannot** have the `children` property overridden.
+
+**Accessibility**
+
+An `Icon` can have 2 purposes:
+
+1. **decorative only**: It illustrates the label next to it. To ensure the icon
+is ignored by screen readers, set `aria-hidden` to `true`.
+  - Ex: `<ArrowUpwardIcon aria-hidden />`
+
+1. **non-decorative**: Used to present information, such as an `Icon` element
+being the only child of a `Button` component. The icon needs to be labelled
+appropriately.
+  - Ex: `<ArrowUpwardIcon aria-label='Scroll to top' />`
+
+[1]: https://material.io/resources/icons/?style=outline
+
+<Props components={{
+  Icon, ArrowUpwardIcon, ChevronRightIcon, CloseIcon, LoadingIcon, MenuIcon
+}} />
+
+## Dependents
+
+<br/>
+
+### ArrowUpwardIcon
+
+`Icon` component with the base class `arrow-upward-icon`.
+
+<Preview>
+  <ArrowUpwardIcon />
+</Preview>
+
+### ChevronRightIcon
+
+`Icon` component with the base class `chevon-right-icon`.
+
+<Preview>
+  <ChevronRightIcon />
+</Preview>
+
+### CloseIcon
+
+`Icon` component the base class `close-icon`.
+
+<Preview>
+  <CloseIcon />
+</Preview>
+
+### LoadingIcon
+
+`Icon` component the base class `loading-icon`.
+
+<Preview>
+  <LoadingIcon />
+</Preview>
+
+### MenuIcon
+
+`Icon` component the base class `menu-icon`.
+
+<Preview>
+  <MenuIcon />
+</Preview>

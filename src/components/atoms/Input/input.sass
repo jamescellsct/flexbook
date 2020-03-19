@@ -1,0 +1,29 @@
+// -----------------------------------------------------------------------------
+// Input styles, variables, placeholders, mixins and functions
+// @group Input
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Input styles
+/// @example <Input />
+/// @require {mixin} font-size
+/// @require {variable} $grey-600
+/// @require {variable} $primary-font-family
+/// @require {variable} $transparent
+%default-input
+  +font-size(16)
+
+  background-color: $transparent
+  font-family: $primary-font-family
+  outline: none
+
+  &::placeholder
+    color: $grey-600
+
+// Styles
+
+// Input
+.ada-input
+  @extend %default-input

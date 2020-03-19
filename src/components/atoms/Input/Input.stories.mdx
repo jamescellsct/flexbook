@@ -1,0 +1,50 @@
+<!-- Packages -->
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks'  
+
+<!-- Components -->
+import {  
+  Input, EmailInput, SearchInput  
+} from '.'  
+
+<!-- Metadata -->
+<Meta title='Atoms/Input' component={Input} /> 
+
+# Input
+
+`<input>` element with the base class `ada-input`.  
+
+The properties `inputMode` and `type` **cannot** be overridden by subcomponents.
+
+**https://developer.mozilla.org/docs/Web/HTML/Element/input**
+
+<Preview>
+  <Story name='Default'>
+    <Input />
+  </Story>
+</Preview>
+
+<Props components={{ Input, EmailInput, SearchInput }} />
+
+## Dependents
+
+<br/>
+
+### EmailInput
+
+`Input` component with the base class `email-input`.
+
+<Preview>
+  <Story name='Email'>
+    <EmailInput />
+  </Story>
+</Preview>
+
+### SearchInput
+
+`Input` component with the base class `search-input`.
+
+<Preview>
+  <Story name='Search'>
+    <SearchInput />
+  </Story>
+</Preview>

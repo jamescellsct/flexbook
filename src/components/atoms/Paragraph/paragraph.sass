@@ -1,0 +1,71 @@
+// -----------------------------------------------------------------------------
+/// Paragraph styles, variables, placeholders, mixins and functions
+// @group Paragraph
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+// Placeholders
+
+/// Paragraph.bucket-text
+/// @example <Paragraph className='bucket-text'>
+/// @require {mixin} font-size
+/// @require {mixin} respond-to
+/// @require {variable} $breakpoint-1024
+/// @require {variable} $magic-number
+%bucket-text
+  +font-size(18)
+
+  +respond-to($breakpoint-1024)
+    +font-size(16)
+
+    margin-bottom: size($magic-number / 2)
+
+
+  font-weight: 300 !important
+  margin-bottom: size($magic-number)
+
+/// Paragraph.bucket-title
+/// @example <Paragraph className='bucket-title'>
+/// @require {mixin} font-size
+/// @require {mixin} respond-to
+/// @require {variable} $breakpoint-1024
+/// @require {variable} $magic-number
+%bucket-title
+  +font-size(20)
+
+  +respond-to($breakpoint-1024)
+    +font-size(18)
+
+
+  font-weight: 600 !important
+  margin-bottom: size($magic-number / 2)
+
+/// Paragragh
+/// @example <Paragraph />
+/// @require {mixin} font-size
+/// @require {variable} $grey-600
+%default-paragraph
+  +font-size(16)
+
+  color: $grey-600
+
+// Styles
+
+// Paragraph
+.ada-paragraph
+  @extend %default-paragraph
+
+// Hero
+.hero-text
+  +font-size(18)
+
+  margin-top: size($magic-number / 6)
+
+// Bucket
+.is-bucket
+  .ada-paragraph
+    &:first-of-type
+      @extend %bucket-title
+
+    &:last-of-type
+      @extend %bucket-text

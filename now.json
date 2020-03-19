@@ -1,0 +1,30 @@
+{
+  "name": "flexbook",
+  "version": 2,
+  "alias": "flexbook.flexdevelopment.now.sh",
+  "github": {
+    "autoAlias": true,
+    "enabled": true,
+    "silent": false
+  },
+  "scope": "flexdevelopment",
+  "env": {},
+  "build": {
+    "env": {
+      "NODE_VERSION": "12"
+    }
+  },
+  "regions": [
+    "iad1"
+  ],
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/repo",
+      "destination": "https://github.com/flex-development/flexbook",
+      "statusCode": 308
+    }
+  ]
+}

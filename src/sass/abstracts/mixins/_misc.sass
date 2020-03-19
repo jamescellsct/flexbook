@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// Misc. app mixins
+// @group mixins-misc
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Wrapper for animation property
+/// @param {String} $name - animation-name
+/// @param {Number} $duration [1.25s] - animation-duration
+/// @param {String} $timing [ease] - animation-timing-function
+/// @param {Number} $delay [0s] - animation-delay
+=animation($name, $duration: 1.25s, $timing: ease, $delay: 0s)
+  animation: $name $duration $timing $delay
+
+/// Removes the border from an element
+=borderless
+  border: none
+
+/// Event wrapper for &:hover, &:active, &:focus
+/// @param {Bool} $self [false] - Whether or not to include current selector
+=event($self: false)
+  @if $self
+    &,
+    &:hover,
+    &:active,
+    &:focus
+      @content
+  @else
+    &:hover,
+    &:active,
+    &:focus
+      @content
+
+/// Hides an element
+/// @requires {mixin} opacity
+=is-hidden
+  +opacity(0)
+
+  display: none
+
+/// Mixin for cross-browser opacity (IE 8).
+/// Clamps the value between 0 and 1.
+/// @requires {function} clamp
+/// @param {Number} $opacity - Opacity level, between 0 and 1
+=opacity($opacity)
+  opacity: clamp($opacity, 0, 1)
+
+/// Background image helper
+/// @requires {function} image
+/// @param {String} $filename - Filename (including extension)
+/// @param {List} $pos [center center] - background-position
+/// @param {String} $repeat [no-repeat] - background-repeat
+/// @param {String} $size [cover] - background-size
+=set-bkg-img($filename, $pos: center center, $repeat: no-repeat, $size: cover)
+  background-image: image('#{$filename}')
+  background-position: $pos
+  background-repeat: $repeat
+  background-size: $size
+
+  @content
+
+/// Wrapper for transition property
+/// @param {String} $property [all] - transition-property
+/// @param {Number} $duration [.25s] - transition-duration
+/// @param {String} $timing [ease] - transition-timing
+/// @param {Number} $delay [0s] - transition-delay
+=transition($property: all, $duration: .5s, $timing: ease, $delay: 0s)
+  transition: $property $duration $timing $delay

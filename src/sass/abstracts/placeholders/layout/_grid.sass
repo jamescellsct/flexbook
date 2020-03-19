@@ -1,0 +1,24 @@
+// -----------------------------------------------------------------------------
+// CSS Grid Placeholders
+// @group placeholders-layout-grid
+// @author Lexus Drumgold
+// -----------------------------------------------------------------------------
+
+/// Defines the element as a grid container and establishes a new grid
+/// formatting context for its contents.
+/// @require {mixin} display-grid
+%display-grid
+  +display-grid
+
+/// Defines the element as an inline grid container and establishes a new grid
+/// formatting context for its contents.
+/// @require {mixin} display-grid
+%display-inline-grid
+  +display-grid(inline-grid)
+
+/// Defines the element as a grid container and establishes a new grid
+/// formatting context for its contents. The grid will change the number of
+/// columns and the gutter width at trespond to the required breakpoints.
+/// @require {mixin} responsive-grid
+%responsive-grid
+  +responsive-grid
