@@ -108,7 +108,7 @@ For example:
 
 This will produce the following commit: `📦 NEW: Add Storybook configuration`
 
-[1]: https://github.com/modelbcompany/Emoji-Log/
+[1]: https://github.com/ahmadawais/Emoji-Log
 
 ### Workflow
 
