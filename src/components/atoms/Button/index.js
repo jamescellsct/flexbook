@@ -19,6 +19,13 @@ import './button.responsive.sass'
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
  */
 
+/**
+ * Renders a <button> element with the base class `ada-button`.
+ *
+ * @class Button
+ * @param {ButtonProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Button = props => {
   const attr = attributes(props, 'ada-button')
 
@@ -29,6 +36,16 @@ const Button = props => {
   return <button {...attr}>{props.children}</button>
 }
 
+/**
+ * Renders @link Button component with the base class `close-btn`.
+ *
+ * A @link CloseIcon component will be rendered inside the button with an
+ * `aria-label` value of `Close`.
+ *
+ * @class CloseButton
+ * @param {ButtonProps} props - Component data
+ * @returns {Button}
+ */
 const CloseButton = props => {
   return (
     <Button {...attributes(props, 'close-btn')}>
@@ -38,6 +55,16 @@ const CloseButton = props => {
   )
 }
 
+/**
+ * Renders @link Button component with the base class `menu-btn`.
+ *
+ * A @link MenuIcon component will be rendered inside the button with an
+ * `aria-label` value of `Open the menu`.
+ *
+ * @class MenuButton
+ * @param {ButtonProps} props - Component data
+ * @returns {Button}
+ */
 const MenuButton = props => {
   return (
     <Button {...attributes(props, 'menu-btn')}>
@@ -47,6 +74,17 @@ const MenuButton = props => {
   )
 }
 
+/**
+ * Renders @link SmoothScrollButton component with the base class
+ * `scroll-to-top-btn`.
+ *
+ * An @link ArrowUpwardIcon component will be rendered inside the button with an
+ * `aria-label` value of `Scroll to top`.
+ *
+ * @class ScrollToTopButton
+ * @param {SmoothScrollButtonProps} props - Component data
+ * @returns {SmoothScrollButton}
+ */
 const ScrollToTopButton = props => {
   return (
     <SmoothScrollButton {...attributes(props, 'scroll-to-top-btn')}>
@@ -56,6 +94,16 @@ const ScrollToTopButton = props => {
   )
 }
 
+/**
+ * Renders @link Button component with the base class `smooth-scroll-btn`.
+ *
+ * When the button is clicked, the page will scroll to the top of the element
+ * selected by @param props.to .
+ *
+ * @class SmoothScrollButton
+ * @param {SmoothScrollButtonProps} props - Component data
+ * @returns {Button}
+ */
 const SmoothScrollButton = props => {
   const { duration, children, to } = props
   const attr = attributes(props, 'smooth-scroll-btn', ['duration', 'to'])
@@ -67,6 +115,11 @@ const SmoothScrollButton = props => {
   )
 }
 
+/**
+ * @link Button component properties.
+ *
+ * @typedef {ButtonProps}
+ */
 Button.propTypes = {
   /**
    * This attribute on a `<button>` is nonstandard and Firefox-specific.
@@ -171,6 +224,19 @@ Button.defaultProps = {
   type: 'button'
 }
 
+CloseButton.defaultProps = {
+  onClick: event => console.debug('CLOSE BUTTON CLICKED =>', event)
+}
+
+MenuButton.defaultProps = {
+  onClick: event => console.debug('MENU BUTTON CLICKED =>', event)
+}
+
+/**
+ * @link SmoothScrollButton component properties.
+ *
+ * @typedef {SmoothScrollButtonProps}
+ */
 SmoothScrollButton.propTypes = {
   /**
    * A string or number determining how long the `scroll` animation will run.
