@@ -16,8 +16,16 @@ import './input.responsive.sass'
  * @file Components representing <input> elements
  * @module components/atoms/Input
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/input}
  */
 
+/**
+ * Renders an `<input>` element with the base class `ada-input`.
+ *
+ * @class Input
+ * @param {InputProps} props - Component data
+ * @returns {HTMLInputElement}
+ */
 const Input = props => {
   const { label } = props
 
@@ -31,6 +39,16 @@ const Input = props => {
   )
 }
 
+/**
+ * Renders an @link Input with the base class `email-input`.
+ *
+ * @param props.inputMode and @param props.type will be overwritten with the
+ * value `email`.
+ *
+ * @class EmailInput
+ * @param {InputProps} props - Component data
+ * @returns {HTMLInputElement}
+ */
 const EmailInput = props => {
   const input = attributes(props, 'email-input')
 
@@ -40,6 +58,16 @@ const EmailInput = props => {
   return <Input {...input} />
 }
 
+/**
+ * Renders an @link Input with the base class `search-input`.
+ *
+ * @param props.inputMode and @param props.type will be overwritten with the
+ * value `search`.
+ *
+ * @class SearchInput
+ * @param {InputProps} props - Component data
+ * @returns {HTMLInputElement}
+ */
 const SearchInput = props => {
   const input = attributes(props, 'search-input')
 
@@ -49,6 +77,11 @@ const SearchInput = props => {
   return <Input {...input} />
 }
 
+/**
+ * @link Input component properties.
+ *
+ * @typedef {InputProps}
+ */
 Input.propTypes = {
   /**
    * Valid for the file input type only, the accept property defines which file

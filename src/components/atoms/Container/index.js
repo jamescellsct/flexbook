@@ -13,12 +13,25 @@ import './container.responsive.sass'
  * @file Component representing a container
  * @module components/atoms/Container
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/div}
  */
 
+/**
+ * Renders a `<div>` element with the base class `ada-container`.
+ *
+ * @class Container
+ * @param {ContainerProps} props - Component data
+ * @returns {HTMLDivElement}
+ */
 const Container = props => {
   return <div {...attributes(props, 'ada-container')}>{props.children}</div>
 }
 
+/**
+ * @link Container component properties.
+ *
+ * @typedef {ContainerProps}
+ */
 Container.propTypes = {
   /**
    * `Container` content.

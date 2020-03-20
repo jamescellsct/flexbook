@@ -13,10 +13,24 @@ import './heading.responsive.sass'
  * @file Component representing heading elements
  * @module components/atoms/Heading
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see
+ * {@link https://developer.mozilla.org/docs/Web/HTML/Element/Heading_Elements}
  * @see {@link https://reactjs.org/docs/dom-elements.html}
  */
 
+/**
+ * Component representing HTML heading elements
+ *
+ * @class Heading
+ * @extends React.Component
+ */
 class Heading extends React.Component {
+  /**
+   * Renders a `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, or `<h6>` element based
+   * on the value of `this.props.size`.
+   *
+   * @returns {HTMLHeadingElement}
+   */
   render() {
     const { children, size } = this.props
 
@@ -48,6 +62,11 @@ class Heading extends React.Component {
   }
 }
 
+/**
+ * @link Heading component properties.
+ *
+ * @typedef {HeadingProps}
+ */
 Heading.propTypes = {
   /**
    * `Heading` text.
@@ -68,6 +87,8 @@ Heading.propTypes = {
    *
    * In general, setting HTML from code is risky because it’s easy to
    * inadvertently expose your users to a cross-site scripting (XSS) attack.
+   *
+   * See: https://reactjs.org/docs/dom-elements.html
    */
   dangerouslySetInnerHTML: PropTypes.exact({
     __html: PropTypes.string.isRequired

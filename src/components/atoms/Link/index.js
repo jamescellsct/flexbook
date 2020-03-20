@@ -1,6 +1,7 @@
 // Packages
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link as RouterLink } from '@reach/router'
 
 // Components
 import { ChevronRightIcon } from '../Icon'
@@ -17,21 +18,40 @@ import './link.responsive.sass'
  * @module components/atoms/Link
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
  * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/a}
+ * @see {@link https://reach.tech/router/api/Link}
+ * @see {@link https://reactjs.org/docs/dom-elements.html}
  */
 
 /**
  * Renders an `<a>` element with the base class `ada-link`.
  *
- * Using the `ActionLink` component will produce a link where a
- * `ChevronRightIcon` component will be rendered next to the link text.
+ * If @param props.router is true, a Reach Router Link will be rendered instead.
+ *
+ * @class Link
+ * @param {LinkProps} props - Component data
+ * @returns {HTMLAnchorElement | RouterLink}
  */
 const Link = props => {
-  return <a {...attributes(props, 'ada-link')}>{props.children}</a>
+  const { children, href, router } = props
+
+  let remove = 'router, to, replace, ref, innerRef, getProps, state'
+  remove = router ? ['router', 'href'] : remove.split(',')
+
+  const attr = attributes(props, 'ada-link', remove)
+  if (router) attr.to = href
+
+  return router
+    ? <RouterLink {...attr}>{children}</RouterLink>
+    : <a {...attr}>{children}</a>
 }
 
 /**
  * Renders a `Link` component with the base class `action-link`.
  * A `ChevronRightIcon` component will be rendered next to the link text.
+ *
+ * @class ActionLink
+ * @param {LinkProps} props - Component data
+ * @returns {HTMLAnchorElement | RouterLink}
  */
 const ActionLink = props => {
   const { children } = props
@@ -43,6 +63,11 @@ const ActionLink = props => {
   )
 }
 
+/**
+ * @link Link component properties.
+ *
+ * @typedef {LinkProps}
+ */
 Link.propTypes = {
   /**
    * Link text.
@@ -76,7 +101,26 @@ Link.propTypes = {
   download: PropTypes.oneOf([true, false]),
 
   /**
+   * Function to gather the props for the underlying anchor element.
+   * Useful for styling the anchor as active.
+   *
+   * This function takes one argument, `obj`. It will have the following
+   * properties:
+   * - **`isCurrent`**: `true` if `location.pathname` is exactly the same as the
+   *   anchor’s href
+   * - **`isPartiallyCurrent`**: `true` if `location.pathname` starts with the
+   *   anchor’s href
+   * - **`href`**: the fully resolved href of the link
+   * - **`location`**: tthe app’s location
+   *
+   * If `internal` is false, this value will be ignored.
+   */
+  getProps: PropTypes.func,
+
+  /**
    * The URL that the hyperlink points to.
+   *
+   * If `internal` is
    */
   href: PropTypes.string,
 
@@ -88,9 +132,46 @@ Link.propTypes = {
   id: PropTypes.string,
 
   /**
+   * Calls up with its inner ref for apps on `React` <16.4.
+   * If using `React` >=16.4, use the `ref` property instead.
+   *
+   * If `internal` is false, this value will be ignored.
+   */
+  innerRef: PropTypes.func,
+
+  /**
+   * If using `React` >=16.4, `Link` will forward its ref to you.
+   *
+   * If `internal` is false, this value will be ignored.
+   */
+  ref: PropTypes.func,
+
+  /**
    * The relationship of the linked URL as space-separated link types.
    */
   rel: PropTypes.string,
+
+  /**
+   * If true, the latest entry on the history stack will be replaced with a new
+   * one. Use this when you don’t want the previous page to show up when the
+   * user clicks the back button.
+   */
+  replace: PropTypes.bool,
+
+  /**
+   * If true, a Reach Router `Link` component will be rendered instead of an
+   * `<a>` element.
+   *
+   * See: https://reach.tech/router/api/Link
+   */
+  router: PropTypes.bool,
+
+  /**
+   * An object to put on location state.
+   *
+   * If `internal` is false, this value will be ignored.
+   */
+  state: PropTypes.object,
 
   /**
    * Where to display the linked URL, as the name for a browsing context (a tab,
@@ -104,6 +185,7 @@ Link.defaultProps = {
   download: false,
   href: '#',
   rel: 'noreferrer noopener',
+  router: false,
   target: '_self'
 }
 

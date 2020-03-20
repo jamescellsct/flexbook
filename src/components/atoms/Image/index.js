@@ -13,13 +13,26 @@ import './image.responsive.sass'
  * @file Component representing an <img> element
  * @module components/atoms/Image
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/img}
  */
 
+/**
+ * Renders an `<img>` element with the base class `ada-image`.
+ *
+ * @class Image
+ * @param {ImageProps} props - Component data
+ * @returns {HTMLImageElement}
+ */
 const Image = props => {
   const attr = attributes(props, 'ada-image')
   return <img {...attr} alt={attr.alt} />
 }
 
+/**
+ * @link Image component properties.
+ *
+ * @typedef {ImageProps}
+ */
 Image.propTypes = {
   /**
    * Defines an alternative text description of the image.

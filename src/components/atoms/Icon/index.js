@@ -16,6 +16,14 @@ import './icon.responsive.sass'
  * @see {@link https://google.github.io/material-design-icons/}
  */
 
+/**
+ * Renders a `<span>` element with the base classes `ada-icon` and
+ * `material-icons`.
+ *
+ * @class Icon
+ * @param {IconProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Icon = props => {
   const { children } = props
   const attr = attributes(props, 'ada-icon material-icons')
@@ -25,22 +33,67 @@ const Icon = props => {
   return <span {...attr}>{children}</span>
 }
 
+/**
+ * Renders an @link Icon component with the base class `arrow-upward-icon`.
+ *
+ * @param props.children will be overriden with the value `arrow_upward`.
+ *
+ * @class ArrowUpwardIcon
+ * @param {IconProps} props - Component data
+ * @returns {Icon}
+ */
 const ArrowUpwardIcon = props => {
   return <Icon {...attributes(props, 'arrow-upward-icon')}>arrow_upward</Icon>
 }
 
+/**
+ * Renders an @link Icon component with the base class `chevon-right-icon`.
+ *
+ * @param props.children will be overriden with the value `chevron_right`.
+ *
+ * @class ChevronRightIcon
+ * @param {IconProps} props - Component data
+ * @returns {Icon}
+ */
 const ChevronRightIcon = props => {
   return <Icon {...attributes(props, 'chevon-right-icon')}>chevron_right</Icon>
 }
 
+/**
+ * Renders an @link Icon component with the base class `close-icon`.
+ *
+ * @param props.children will be overriden with the value `close`.
+ *
+ * @class ChevronRightIcon
+ * @param {IconProps} props - Component data
+ * @returns {Icon}
+ */
 const CloseIcon = props => {
   return <Icon {...attributes(props, 'close-icon')}>close</Icon>
 }
 
+/**
+ * Renders an @link Icon component with the base class `loading-icon`.
+ *
+ * @param props.children will be overriden with the value `refresh`.
+ *
+ * @class LoadingIcon
+ * @param {IconProps} props - Component data
+ * @returns {Icon}
+ */
 const LoadingIcon = props => {
   return <Icon {...attributes(props, 'loading-icon')}>refresh</Icon>
 }
 
+/**
+ * Renders an @link Icon component with the base class `menu-icon`.
+ *
+ * @param props.children will be overriden with the value `menu`.
+ *
+ * @class MenuIcon
+ * @param {IconProps} props - Component data
+ * @returns {Icon}
+ */
 const MenuIcon = props => {
   return <Icon {...attributes(props, 'menu-icon')}>menu</Icon>
 }

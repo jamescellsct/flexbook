@@ -14,13 +14,14 @@ import './button.sass'
 import './button.responsive.sass'
 
 /**
- * @file Components representing `<button>` elements
+ * @file Components representing <button> elements
  * @module components/atoms/Button
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/button}
  */
 
 /**
- * Renders a <button> element with the base class `ada-button`.
+ * Renders a `<button>` element with the base class `ada-button`.
  *
  * @class Button
  * @param {ButtonProps} props - Component data

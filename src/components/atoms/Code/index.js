@@ -14,12 +14,25 @@ import './code.responsive.sass'
  * @module components/atoms/Code
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
  * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/code}
+ * @see {@link https://reactjs.org/docs/dom-elements.html}
  */
 
+/**
+ * Renders a `<code>` element with the base class `ada-code`.
+ *
+ * @class Code
+ * @param {CodeProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Code = props => {
   return <code {...attributes(props, 'ada-code')}>{props.children}</code>
 }
 
+/**
+ * @link Code component properties.
+ *
+ * @typedef {CodeProps}
+ */
 Code.propTypes = {
   /**
    * Code snippet.

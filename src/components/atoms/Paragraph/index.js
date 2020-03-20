@@ -14,12 +14,25 @@ import './paragraph.responsive.sass'
  * @module components/atoms/Paragraph
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
  * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/p}
+ * @see {@link https://reactjs.org/docs/dom-elements.html}
  */
 
+/**
+ * Renders a `<p>` element with the base class `ada-paragraph`.
+ *
+ * @class Paragraph
+ * @param {ParagraphProps} props - Component data
+ * @returns {HTMLParagraphElement}
+ */
 const Paragraph = props => {
   return <p {...attributes(props, 'ada-paragraph')}>{props.children}</p>
 }
 
+/**
+ * @link Paragraph component properties.
+ *
+ * @typedef {ParagraphProps}
+ */
 Paragraph.propTypes = {
   /**
    * Paragraph text.

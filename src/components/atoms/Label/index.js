@@ -13,15 +13,28 @@ import './label.responsive.sass'
  * @file Component representing a <label> element
  * @module components/atoms/Label
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/label}
  * @see {@link https://reactjs.org/docs/dom-elements.html}
  */
 
+/**
+ * Renders a `<label>` element with the base class `ada-label`.
+ *
+ * @class Label
+ * @param {LabelProps} props - Component data
+ * @returns {HTMLLabelElement}
+ */
 const Label = props => {
   const { children } = props
 
   return <label {...attributes(props, 'ada-label')}>{children}</label>
 }
 
+/**
+ * @link Label component properties.
+ *
+ * @typedef {LabelProps}
+ */
 Label.propTypes = {
   /**
    * Label text. The label text is not only visually associated with its
