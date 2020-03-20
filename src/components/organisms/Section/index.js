@@ -17,8 +17,16 @@ import './section.responsive.sass'
  * @file Components representing UI sections
  * @module components/organisms/Section
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/section}
  */
 
+/**
+ * Renders a `<section>` element with the base class `ado-section`.
+ *
+ * @class Section
+ * @param {SectionProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Section = props => {
   const { children, container } = props
   const attr = attributes(props, 'ado-section', ['container'])
@@ -32,6 +40,13 @@ const Section = props => {
   )
 }
 
+/**
+ * Renders a @link Section component with the base class `hero`.
+ *
+ * @class Hero
+ * @param {HeroProps} props - Component data
+ * @returns {Section}
+ */
 const Hero = props => {
   const { text, title } = props
 
@@ -51,6 +66,11 @@ const Hero = props => {
   )
 }
 
+/**
+ * @link Section component properties.
+ *
+ * @typedef {SectionProps}
+ */
 Section.propTypes = {
   /**
    * `Section` content.
@@ -86,6 +106,11 @@ Section.defaultProps = {
   container: true
 }
 
+/**
+ * @link Hero component properties.
+ *
+ * @typedef {HeroProps}
+ */
 Hero.propTypes = {
   /**
    * `Paragraph` `children` to display.

@@ -18,8 +18,16 @@ import './aside.responsive.sass'
  * @file Component representing <aside> elements
  * @module components/organisms/Aside
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/aside}
  */
 
+/**
+ * Renders an `<aside>` element with the base class `ado-aside`.
+ *
+ * @class Aside
+ * @param {AsideProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Aside = props => {
   const { children, container } = props
 
@@ -34,6 +42,16 @@ const Aside = props => {
   )
 }
 
+/**
+ * Renders an @link Aside component with the base class `sidebar`.
+ *
+ * A @link Container component with the base class `sidebar-dimmer` will be
+ * rendered beneath the component as well.
+ *
+ * @class Sidebar
+ * @param {SidebarProps} props - Component data
+ * @returns {Aside}
+ */
 const Sidebar = props => {
   const attr = attributes(props, 'sidebar', ['items'])
   const dimmer = attributes(props, 'sidebar-dimmer is-stretched')
@@ -54,6 +72,11 @@ const Sidebar = props => {
   )
 }
 
+/**
+ * @link Aside component properties.
+ *
+ * @typedef {AsideProps}
+ */
 Aside.propTypes = {
   /**
    * Inner content.
@@ -89,6 +112,11 @@ Aside.defaultProps = {
   container: false
 }
 
+/**
+ * @link Sidebar component properties.
+ *
+ * @typedef {SidebarProps}
+ */
 Sidebar.propTypes = {
   /**
    * Array of `Link` component data to display in the sidebar menu.

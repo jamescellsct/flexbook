@@ -16,8 +16,16 @@ import './navigation.responsive.sass'
  * @file Components representing <nav> elements
  * @module components/organisms/Navigation
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/nav}
  */
 
+/**
+ * Renders a `<nav>` element with the base class `ado-nav`.
+ *
+ * @class Navigation
+ * @param {NavigationProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Navigation = props => {
   const { children, container } = props
   const attr = attributes(props, 'ado-nav', ['container'])
@@ -31,6 +39,11 @@ const Navigation = props => {
   )
 }
 
+/**
+ * @link Navigation component properties.
+ *
+ * @typedef {NavigationProps}
+ */
 Navigation.propTypes = {
   /**
    * `Navigation` content.

@@ -25,6 +25,22 @@ import { Aside, Sidebar } from '.'
 
 A `Container` component with the base class `sidebar-dimmer` will be rendered beneath the component as well.
 
+The `CloseButton` rendered inside the `Sidebar` will have the following
+`onClick` value:
+
+```javascript
+/**
+ * Removes the class `visible` from the Sidebar and its dimmer.
+ * 
+ * @param {MouseEvent} event - onClick event
+ * @returns {undefined}
+ */
+const close = event => {
+  $('.sidebar').removeClass('visible')
+  $('.sidebar-dimmer').removeClass('visible')
+}
+```
+
 <Preview id='sidebar-preview'>
   <Story name='Sidebar'>
     <Sidebar className='right visible' />

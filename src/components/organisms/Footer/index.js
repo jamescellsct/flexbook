@@ -16,8 +16,16 @@ import './footer.responsive.sass'
  * @file Components representing <footer> elements
  * @module components/organisms/Footer
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/footer}
  */
 
+/**
+ * Renders a `<footer>` element with the base class `ado-footer`.
+ *
+ * @class Footer
+ * @param {FooterProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Footer = props => {
   const { children, container } = props
   const attr = attributes(props, 'ado-footer', ['container'])
@@ -31,6 +39,11 @@ const Footer = props => {
   )
 }
 
+/**
+ * @link Footer component properties.
+ *
+ * @typedef {FooterProps}
+ */
 Footer.propTypes = {
   /**
    * `Footer` content.

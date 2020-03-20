@@ -16,8 +16,16 @@ import './header.responsive.sass'
  * @file Components representing <header> elements
  * @module components/organisms/Header
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/header}
  */
 
+/**
+ * Renders a `<header>` element with the base class `ado-header`.
+ *
+ * @class Header
+ * @param {HeaderProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Header = props => {
   const { children, container } = props
   const attr = attributes(props, 'ado-header', ['container'])
@@ -31,6 +39,11 @@ const Header = props => {
   )
 }
 
+/**
+ * @link Header component properties.
+ *
+ * @typedef {HeaderProps}
+ */
 Header.propTypes = {
   /**
    * `Header` content.
