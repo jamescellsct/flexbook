@@ -16,8 +16,16 @@ import './column.responsive.sass'
  * @file Components representing UI columns
  * @module components/molecules/Column
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/div}
  */
 
+/**
+ * Renders a `<div>` element with the base class `adm-column`.
+ *
+ * @class Column
+ * @param {ColumnProps} props - Component data
+ * @returns {HTMLDivElement}
+ */
 const Column = props => {
   const { children, container } = props
   const attr = attributes(props, 'adm-column', ['container'])
@@ -31,6 +39,11 @@ const Column = props => {
   )
 }
 
+/**
+ * @link Column component properties.
+ *
+ * @typedef {ColumnProps}
+ */
 Column.propTypes = {
   /**
    * `Column` content.

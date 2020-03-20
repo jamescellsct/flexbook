@@ -14,11 +14,19 @@ import './form.sass'
 import './form.responsive.sass'
 
 /**
- * @file Components representing `<form>` elements
+ * @file Components representing <form> elements
  * @module components/molecules/Form
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/form}
  */
 
+/**
+ * Renders a `<form>` element with the base class `adm-form`.
+ *
+ * @class Form
+ * @param {FormProps} props - Component data
+ * @returns {HTMLFormElement}
+ */
 const Form = props => {
   return (
     <form {...attributes(props, 'adm-form')}>
@@ -27,6 +35,15 @@ const Form = props => {
   )
 }
 
+/**
+ * Renders a @link Form component with the base class `email-form`.
+ *
+ * An @link EmailField and @link Button component will be the form's children.
+ *
+ * @class EmailForm
+ * @param {BarFormProps} props - Component data
+ * @returns {Form}
+ */
 const EmailForm = props => {
   let { button, field } = props
 
@@ -45,6 +62,15 @@ const EmailForm = props => {
   )
 }
 
+/**
+ * Renders a @link Form component with the base class `email-form`.
+ *
+ * An @link SearchField and @link Button component will be the form's children.
+ *
+ * @class SearchBar
+ * @param {BarFormProps} props - Component data
+ * @returns {Form}
+ */
 const SearchBar = props => {
   let { button, field } = props
 
@@ -63,6 +89,11 @@ const SearchBar = props => {
   )
 }
 
+/**
+ * @link Form component properties.
+ *
+ * @typedef {FormProps}
+ */
 Form.propTypes = {
   /**
    * The URL that processes the form submission.
@@ -174,7 +205,13 @@ Form.defaultProps = {
   target: '_self'
 }
 
-const SUBCOMPONENT_PROPS = {
+/**
+ * Component properties for subcomponents of @link Form that are styled as a
+ * bar.
+ *
+ * @typedef {BarFormProps}
+ */
+const BAR_STYLE_FORM_PROPS = {
   /**
    * `Button` component properties.
    */
@@ -186,7 +223,7 @@ const SUBCOMPONENT_PROPS = {
   field: PropTypes.object
 }
 
-EmailForm.propTypes = SUBCOMPONENT_PROPS
+EmailForm.propTypes = BAR_STYLE_FORM_PROPS
 
 EmailForm.defaultProps = {
   button: {
@@ -197,7 +234,7 @@ EmailForm.defaultProps = {
   id: 'email-form'
 }
 
-SearchBar.propTypes = SUBCOMPONENT_PROPS
+SearchBar.propTypes = BAR_STYLE_FORM_PROPS
 
 SearchBar.defaultProps = {
   button: {

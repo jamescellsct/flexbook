@@ -16,8 +16,22 @@ import './fieldset.responsive.sass'
  * @file Components representing <fieldset> elements
  * @module components/molecules/Fieldset
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/fieldset}
+ * @see {@link https://khrome.dev/blog/html-elements-with-flex-box-quirks/}
  */
 
+/**
+ * Renders a `<fieldset>` element with the base class `adm-fieldset`.
+ *
+ * Because `<fieldset>` elements ignore Flexbox properties, a `Container`
+ * element with the class `fieldset-container` will wrap the child elements.
+ *
+ * See: https://khrome.dev/blog/html-elements-with-flex-box-quirks/
+ *
+ * @class Fieldset
+ * @param {FieldsetProps} props - Component data
+ * @returns {HTMLFieldSetElement}
+ */
 const Fieldset = props => {
   return (
     <fieldset {...attributes(props, 'adm-fieldset')}>
@@ -28,6 +42,14 @@ const Fieldset = props => {
   )
 }
 
+/**
+ * Renders a @link Fieldset component with the base class `email-field` and an
+ * @link EmailInput component as its child.
+ *
+ * @class EmailField
+ * @param {EmailFieldProps} props - Component data
+ * @returns {Fieldset}
+ */
 const EmailField = props => {
   let { input } = props
 
@@ -40,6 +62,14 @@ const EmailField = props => {
   )
 }
 
+/**
+ * Renders a @link Fieldset component with the base class `search-field` and a
+ * @link SearchInput component as its child.
+ *
+ * @class SearchField
+ * @param {SearchFieldProps} props - Component data
+ * @returns {Fieldset}
+ */
 const SearchField = props => {
   let { input } = props
 
@@ -52,6 +82,11 @@ const SearchField = props => {
   )
 }
 
+/**
+ * @link Fieldset component properties.
+ *
+ * @typedef {FieldsetProps}
+ */
 Fieldset.propTypes = {
   /**
    * Form controls to group together.
@@ -100,6 +135,11 @@ Fieldset.propTypes = {
 
 Fieldset.defaultProps = {}
 
+/**
+ * @link EmailField component properties.
+ *
+ * @typedef {EmailFieldProps}
+ */
 EmailField.propTypes = {
   /**
    * Properties to pass to the `EmailInput` component inside the field.
@@ -121,6 +161,11 @@ EmailField.defaultProps = {
   name: 'email-field'
 }
 
+/**
+ * @link SearchField component properties.
+ *
+ * @typedef {SearchFieldProps}
+ */
 SearchField.propTypes = {
   /**
    * Properties to pass to the `SearchInput` component inside the field.

@@ -16,12 +16,27 @@ import './item.responsive.sass'
  * @file Component representing a <li> element
  * @module components/molecules/Item
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/li}
  */
 
+/**
+ * Renders a `<li>` element with the base class `adm-item`.
+ *
+ * @class Item
+ * @param {ItemProps} props - Component data
+ * @returns {HTMLLIElement}
+ */
 const Item = props => {
   return <li {...attributes(props, 'adm-item')}>{props.children}</li>
 }
 
+/**
+ * Renders an @link Item component with the base class `is-bucket`.
+ *
+ * @class Bucket
+ * @param {BucketProps} props - Component data
+ * @returns {Item}
+ */
 const Bucket = props => {
   const { link, title, text } = props
 
@@ -34,6 +49,11 @@ const Bucket = props => {
   )
 }
 
+/**
+ * @link Item component properties.
+ *
+ * @typedef {ItemProps}
+ */
 Item.propTypes = {
   /**
    * `Item` content.
@@ -64,6 +84,11 @@ Item.propTypes = {
   title: PropTypes.string
 }
 
+/**
+ * @link Bucket component properties.
+ *
+ * @typedef {BucketProps}
+ */
 Bucket.propTypes = {
   /**
    * `Link` component properties.

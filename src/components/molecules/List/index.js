@@ -17,8 +17,18 @@ import './list.responsive.sass'
  * @file Components representing <dl>, <ol>, and <ul> elements
  * @module components/molecules/List
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/dl}
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/ol}
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/ul}
  */
 
+/**
+ * Renders a `<dl>`, `<ol>`, or `<ul>` element with the base class `adm-list`.
+ *
+ * @class List
+ * @param {ListProps} props - Component data
+ * @returns {HTMLDListElement | HTMLOListElement | HTMLUListElement}
+ */
 const List = props => {
   const { children, type } = props
 
@@ -35,6 +45,15 @@ const List = props => {
   }
 }
 
+/**
+ * Renders a @link List component with the base class `buckets`.
+ *
+ * A list of @link Bucket components will be the list's children.
+ *
+ * @class Buckets
+ * @param {BucketsProps} props - Component data
+ * @returns {List}
+ */
 const Buckets = props => {
   const { items = [] } = props
 
@@ -45,6 +64,16 @@ const Buckets = props => {
   )
 }
 
+/**
+ * Renders a @link List component with the base class `menu`.
+ *
+ * The menu links will be rendered inside of @link Item components, which will
+ * be the list children.
+ *
+ * @class Menu
+ * @param {MenuProps} props - Component data
+ * @returns {List}
+ */
 const Menu = props => {
   const { items = [] } = props
 
@@ -57,6 +86,11 @@ const Menu = props => {
   )
 }
 
+/**
+ * @link List component properties.
+ *
+ * @typedef {ListProps}
+ */
 List.propTypes = {
   /**
    * List items.
@@ -95,6 +129,11 @@ List.defaultProps = {
   type: 'unordered'
 }
 
+/**
+ * @link Buckets component properties.
+ *
+ * @typedef {BucketsProps}
+ */
 Buckets.propTypes = {
   /**
    * Collection of `Bucket` component properties.
@@ -131,6 +170,11 @@ Buckets.defaultProps = {
   ]
 }
 
+/**
+ * @link Menu component properties.
+ *
+ * @typedef {MenuProps}
+ */
 Menu.propTypes = {
   /**
    * Collection of `Link` component properties.

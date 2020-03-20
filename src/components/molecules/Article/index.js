@@ -16,8 +16,16 @@ import './article.responsive.sass'
  * @file Component representing <article> elements
  * @module components/molecules/Article
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/article}
  */
 
+/**
+ * Renders an `<article>` element with the base class `adm-article`.
+ *
+ * @class Article
+ * @param {ArticleProps} props - Component data
+ * @returns {HTMLElement}
+ */
 const Article = props => {
   const { children, container } = props
   const attr = attributes(props, 'adm-article', ['container'])
@@ -31,6 +39,11 @@ const Article = props => {
   )
 }
 
+/**
+ * @link Article component properties.
+ *
+ * @typedef {ArticleProps}
+ */
 Article.propTypes = {
   /**
    * `Article` content

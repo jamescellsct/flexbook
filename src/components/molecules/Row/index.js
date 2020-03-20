@@ -16,8 +16,16 @@ import './row.responsive.sass'
  * @file Components representing UI rows
  * @module components/molecules/Row
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/div}
  */
 
+/**
+ * Renders a `<div>` element with the base class `adm-row`.
+ *
+ * @class Row
+ * @param {RowProps} props - Component data
+ * @returns {HTMLDivElement}
+ */
 const Row = props => {
   const { children, container } = props
   const attr = attributes(props, 'adm-row', ['container'])
@@ -31,6 +39,11 @@ const Row = props => {
   )
 }
 
+/**
+ * @link Row component properties.
+ *
+ * @typedef {RowProps}
+ */
 Row.propTypes = {
   /**
    * `Row` content.
