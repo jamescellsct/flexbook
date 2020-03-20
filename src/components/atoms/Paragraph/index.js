@@ -16,9 +16,6 @@ import './paragraph.responsive.sass'
  * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/p}
  */
 
-/**
- * Renders a `<p>` element with the base class `ada-paragraph`.
- */
 const Paragraph = props => {
   return <p {...attributes(props, 'ada-paragraph')}>{props.children}</p>
 }

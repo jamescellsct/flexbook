@@ -2,6 +2,7 @@
 import Button, {
   CloseButton, MenuButton, ScrollToTopButton, SmoothScrollButton
 } from './Button'
+import Code from './Code'
 import Container from './Container'
 import Heading from './Heading'
 import Icon, {
@@ -25,6 +26,7 @@ const Atoms = {
   ArrowUpwardIcon,
   Button,
   ChevronRightIcon,
+  Code,
   Container,
   CloseButton,
   EmailInput,
@@ -49,6 +51,7 @@ export {
   ArrowUpwardIcon,
   Button,
   ChevronRightIcon,
+  Code,
   Container,
   CloseButton,
   EmailInput,
