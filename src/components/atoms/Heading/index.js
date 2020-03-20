@@ -13,6 +13,7 @@ import './heading.responsive.sass'
  * @file Component representing heading elements
  * @module components/atoms/Heading
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
+ * @see {@link https://reactjs.org/docs/dom-elements.html}
  */
 
 class Heading extends React.Component {
@@ -61,6 +62,16 @@ Heading.propTypes = {
    * `Document.getElementsByClassName()`.
    */
   className: PropTypes.string,
+
+  /**
+   * React’s replacement for using `innerHTML` in the browser DOM.
+   *
+   * In general, setting HTML from code is risky because it’s easy to
+   * inadvertently expose your users to a cross-site scripting (XSS) attack.
+   */
+  dangerouslySetInnerHTML: PropTypes.exact({
+    __html: PropTypes.string.isRequired
+  }),
 
   /**
    * Defines a unique identifier (ID) which must be unique in the whole

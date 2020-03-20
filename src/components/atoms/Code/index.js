@@ -6,26 +6,23 @@ import PropTypes from 'prop-types'
 import { attributes } from '../../../utils/html.utils'
 
 // Stylesheets
-import './paragraph.sass'
-import './paragraph.responsive.sass'
+import './code.sass'
+import './code.responsive.sass'
 
 /**
- * @file Components representing a <p> element
- * @module components/atoms/Paragraph
+ * @file Components representing a <code> element
+ * @module components/atoms/Code
  * @author Lexus Drumgold <lex@flexdevelopment.llc>
- * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/p}
+ * @see {@link https://developer.mozilla.org/docs/Web/HTML/Element/code}
  */
 
-/**
- * Renders a `<p>` element with the base class `ada-paragraph`.
- */
-const Paragraph = props => {
-  return <p {...attributes(props, 'ada-paragraph')}>{props.children}</p>
+const Code = props => {
+  return <code {...attributes(props, 'ada-code')}>{props.children}</code>
 }
 
-Paragraph.propTypes = {
+Code.propTypes = {
   /**
-   * Paragraph text.
+   * Code snippet.
    */
   children: PropTypes.node,
 
@@ -65,8 +62,10 @@ Paragraph.propTypes = {
   title: PropTypes.string
 }
 
-Paragraph.defaultProps = {
-  children: 'The quick brown fox jumps over the lazy dog. How vexingly quick daft zebras jump! Sphinx of black quartz, judge my vow. The five boxing wizards jump quickly. Jackdaws love my big sphinx of quartz. Pack my box with five dozen liquor jugs. Jived fox nymph grabs quick waltz. Glib jocks quiz nymph to vex dwarf.'
+Code.defaultProps = {
+  dangerouslySetInnerHTML: {
+    __html: '// Logs a message to the console<br/>console.log("Hello, world!")'
+  }
 }
 
-export default Paragraph
+export default Code
