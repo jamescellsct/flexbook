@@ -57,21 +57,6 @@ module.exports = {
    * @returns {object} Webpack configuration
    */
   webpackFinal: async (config, { configType }) => {
-    config.module.rules.push({
-      test: /\.jsx?$/i,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react'
-            ]
-          }
-        }
-      ]
-    })
-
     config.module.rules.push(
       {
         test: /\.s[ac]ss$/i,
